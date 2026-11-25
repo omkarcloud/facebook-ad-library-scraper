@@ -1,0 +1,12 @@
+services:
+  facebook-ad-library-scraper:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      # Optional: leave this unset to go out from your own connection. A home connection needs no proxy.
+      # On a cloud server, set a residential proxy (an ISP proxy works too): Facebook refuses
+      # page 2+ of ad lists from datacenter addresses.
+      # - FACEBOOK_AD_LIBRARY_PROXY=http://user:pass@host:port
